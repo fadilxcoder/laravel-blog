@@ -60,7 +60,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkRole:admin']],
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('adminDashboard');
     Route::get('/posts', [AdminController::class, 'posts'])->name('adminPosts');
     Route::post('/post/{id}/delete', [AdminController::class, 'deletePost'])->name('adminDeletePost');
-    Route::get('/post/{id}/edit', [AdminController::class, 'editPost'])->name('adminPostEdit');
+    Route::get('/post/{id}/{title}/edit', [AdminController::class, 'editPost'])->where(['id' => '[0-9]+', 'author' => '[a-z-]+'])->name('adminPostEdit');
     Route::post('/post/{id}/edit', [AdminController::class, 'submitEditPost'])->name('adminSubmitEditPost');
     Route::get('/comments', [AdminController::class, 'comments'])->name('adminComments');
     Route::post('/comment/{id}/delete', [AdminController::class, 'deleteComment'])->name('adminDeleteComment');

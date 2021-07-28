@@ -22,6 +22,7 @@
                             </div>
                         @endif
                         <div class="table-responsive">
+
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
@@ -41,8 +42,9 @@
                                         <td>{{ $posts->readableDate($posts->created_at) }}</td>
                                         <td>{{ $posts->readableDate($posts->updated_at) }}</td>
                                         <td>{{ $posts->comments->count() }}</td>
+
                                         <td>
-                                            <a class="btn btn-block btn-warning" href="{{ route('adminPostEdit', $posts->id) }}"><i class="fa fa-pencil-alt"></i></a><br>
+                                            <a class="btn btn-block btn-warning" href="{{ route('adminPostEdit', ['id' => $posts->id, 'title' => uri_beautifier($posts->title) ]) }}"><i class="fa fa-pencil-alt"></i></a><br>
                                             <form id="delete-post-{{ $posts->id }}" action="{{ route('adminDeletePost', $posts->id) }}" method="post">@csrf</form>
                                             <button class="btn btn-block btn-danger" onclick="document.getElementById('delete-post-{{ $posts->id }}').submit()"><i class="fa fa-trash"></i></button>
                                         </td>

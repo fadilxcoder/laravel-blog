@@ -8,6 +8,17 @@
 - `php artisan storage:link` create symlink in `<app_name>/public/` for `<app_name>/storage/app/public/`
 - Routes `routes/web.php` - Auth & check role middleware
 - Models are named **singular** and tables are created in **plural**
+- Using debug bar
+- - `composer require barryvdh/laravel-debugbar --dev`
+- - In `config/app.php`, add :
+- - - `Barryvdh\Debugbar\ServiceProvider::class,` in `providers`
+- - - `'Debugbar' => Barryvdh\Debugbar\Facade::class,` in `aliases`
+- - Then run `php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"` - create `debugbar.php` in `config` repo
+- Helpers
+- In repo : `Utils/helper.php`
+- Added in `composer.json` - `autoload` section, then `composer dump-autoload`
+- Used in `resources/views/admin/posts.blade.php`
+- Routes admin - `adminPostEdit` updated for multiple parameter
 
 ## Auth package
 
