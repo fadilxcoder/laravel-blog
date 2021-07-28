@@ -35,7 +35,7 @@
 - Then `npm run dev`
 - Check `webpack.mix.js` & `package.json`
 
-## Migrations
+## Database & Migrations
 
 - `config/database.php` & `.env` hold DB connection details and type of database used
 - Connect to MySQL CLI using command prompt by `mysql -u <username> -p`, then type your password.
@@ -62,10 +62,14 @@ Schema::create('cars', function (Blueprint $table) {
 - - `php artisan migrate:refresh` - rollback & migrate 
 - - `php artisan migrate:status` - Get information
 
-## Factory - Database, Query Builder, Eloquent,  
+## Factory
 
 - ` php artisan make:factory PostFactory --model=Post` - create file in `database/factories` based on model argument
 - Use of **laravel/tinker** by `php artisan tinker` for table population (**N.B** change `protected $model` in `<NAME>Factory.php`)
 - `\App\Models\User::factory()->count(5)->create();` - create 5 users (**N.B** Models should have `use HasFactory;`)
 - - `\App\Models\Post::factory()->count(7)->create();` - create 7 posts
 - - `\App\Models\Comment::factory()->count(15)->create();` - create 15 comments
+
+## Query Builder & Eloquent  
+
+- Code in `app/Http/Controllers/PubloicController.php`, methods : `carsList` & `carSingle`

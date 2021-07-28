@@ -28,6 +28,8 @@ Route::get('/post/{id}', [PublicController::class, 'singlePost'])->where('id', '
 Route::get('/about-us', [PublicController::class, 'aboutUs'])->name('about');
 Route::get('/contact-us', [PublicController::class, 'contactUs'])->name('contact');
 Route::post('/contact-us', [PublicController::class, 'contactUsPost'])->name('contactPost');
+Route::get('/cars', [PublicController::class, 'carsList'])->name('carlist');
+Route::get('/car/{id}', [PublicController::class, 'carSingle'])->name('carSingle');
 
 # Authentication routes
 Auth::routes();
