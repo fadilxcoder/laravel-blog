@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use \Carbon\Carbon as Carbon;
 
 class Comment extends Model
 {
+    use HasFactory;
 
     public function user()
     {
