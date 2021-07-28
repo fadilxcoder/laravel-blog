@@ -49,9 +49,9 @@ Route::group(['prefix' => 'author', 'middleware' => ['auth', 'checkRole:author']
     Route::get('/comments', [AuthorController::class, 'comments'])->name('authorComments');
     Route::get('/posts', [AuthorController::class, 'posts'])->name('authorPosts');
     Route::get('/post/new', [AuthorController::class, 'newPost'])->name('newPost');
-    Route::post('/post/new', [UserController::class, 'submitNewPost'])->name('submitNewPost');
-    Route::post('/post/{id}/delete', [UserController::class, 'deletePost'])->name('deletePost');
-    Route::get('/post/{id}/edit', [AuthorController::class, 'editPost'])->name('editPost');
+    Route::post('/post/new', [AuthorController::class, 'submitNewPost'])->name('submitNewPost');
+    Route::post('/post/{id}/delete', [AuthorController::class, 'deletePost'])->name('deletePost');
+    Route::get('/post/{id}/edit', [AuthorController::class, 'editPost'])->name('postEdit');
     Route::post('/post/{id}/edit', [UserController::class, 'submitEditPost'])->name('submitEditPost');
 });
 

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 use App\Http\Requests\UserUpdate;
-use App\Comment;
+use App\Models\Comment;
 
 class UserController extends Controller
 {

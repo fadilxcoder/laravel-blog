@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \Carbon\Carbon as Carbon;
-use App\Post as Post;
-use App\Comment as Comment;
-use App\User as User;
+use App\Models\Post as Post;
+use App\Models\Comment as Comment;
+use App\Models\User as User;
 use App\Http\Requests\CreatePost;
 use App\Http\Requests\UserUpdate;
 

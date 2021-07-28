@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon as Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -40,4 +41,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function comments()
+    {
+        //1 user has many comments
+        return $this->hasMany('App\Models\Comment');
+    }
+
+    public function posts()
+    {
+        //1 user has many posts
+        return $this->hasMany('App\Models\Post');
+    }
+
+    public function postsToday()
+    {
+        return $this->hasMany('App\Models\Post')->where('created_at', '>=', Carbon::today() );
+    }
 }
