@@ -73,3 +73,4 @@ Schema::create('cars', function (Blueprint $table) {
 ## Query Builder & Eloquent  
 
 - Code in `app/Http/Controllers/PubloicController.php`, methods : `carsList` & `carSingle`
+- More about DB in `<project>\vendor\laravel\framework\src\Illuminate\Support\Facades\DB.php`
