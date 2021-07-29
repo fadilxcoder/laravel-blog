@@ -31,6 +31,8 @@ Route::post('/contact-us', [PublicController::class, 'contactUsPost'])->name('co
 Route::get('/cars', [PublicController::class, 'carsList'])->name('carlist');
 Route::get('/car/{id}', [PublicController::class, 'carSingle'])->name('carSingle');
 
+Route::resource('car-lists', \App\Http\Controllers\CarsController::class);
+
 # Authentication routes
 Auth::routes();
 

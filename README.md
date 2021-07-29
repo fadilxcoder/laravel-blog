@@ -1,5 +1,6 @@
 # Notes
 
+- https://laravel.com/docs/8.x/releases (Documentation)
 - Installation
 - - `laravel new <repo_name>` (add `--auth` if you want *Authentication* ) if you have laravel install as a global package - `composer global require laravel/installer`
 - - `composer create-project --prefer-dist laravel/laravel <repo_name>`
@@ -19,6 +20,7 @@
 - Added in `composer.json` - `autoload` section, then `composer dump-autoload`
 - Used in `resources/views/admin/posts.blade.php`
 - Routes admin - `adminPostEdit` updated for multiple parameter
+- ` php artisan route:list` - Routes list
 
 ## Auth package
 
@@ -70,7 +72,33 @@ Schema::create('cars', function (Blueprint $table) {
 - - `\App\Models\Post::factory()->count(7)->create();` - create 7 posts
 - - `\App\Models\Comment::factory()->count(15)->create();` - create 15 comments
 
-## Query Builder & Eloquent  
+## Query Builder
 
 - Code in `app/Http/Controllers/PubloicController.php`, methods : `carsList` & `carSingle`
 - More about DB in `<project>\vendor\laravel\framework\src\Illuminate\Support\Facades\DB.php`
+
+## Eloquent
+
+- ` php artisan make:controller CarsController --resource` - create controller with CRUD methods
+- In `web.php`, add `Route::resource('car-lists', \App\Http\Controllers\CarsController::class);`, then routes will be created automatically
+```
+|        | POST      | car-lists                     | car-lists.store       | App\Http\Controllers\CarsController@store                              | web                                          |
+|        | GET|HEAD  | car-lists                     | car-lists.index       | App\Http\Controllers\CarsController@index                              | web                                          |
+|        | GET|HEAD  | car-lists/create              | car-lists.create      | App\Http\Controllers\CarsController@create                             | web                                          |
+|        | PUT|PATCH | car-lists/{car_list}          | car-lists.update      | App\Http\Controllers\CarsController@update                             | web                                          |
+|        | DELETE    | car-lists/{car_list}          | car-lists.destroy     | App\Http\Controllers\CarsController@destroy                            | web                                          |
+|        | GET|HEAD  | car-lists/{car_list}          | car-lists.show        | App\Http\Controllers\CarsController@show                               | web                                          |
+|        | GET|HEAD  | car-lists/{car_list}/edit     | car-lists.edit        | App\Http\Controllers\CarsController@edit                               | web                                          |
+```
+- Eloquent URLs :
+- - `<app_url>/car-lists` - Show all
+- - `<app_url>/car-lists/<ID>` - Show single
+- - `<app_url>/car-lists/create` - Create New entry - Not good way, only for example
+- - `<app_url>/car-lists/<ID>/edit` - Edit single & Delete - Not good way, only for example
+- Codes are in `app/Http/Controllers/CarController.php`
+
+## Request in blade templating engine
+
+- use `@csrf`
+- use `@method('delete')` - for delete
+- use `@method('PUT')` - for update
