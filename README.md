@@ -9,16 +9,10 @@
 - `php artisan storage:link` create symlink in `<app_name>/public/` for `<app_name>/storage/app/public/`
 - Routes `routes/web.php` - Auth & check role middleware
 - Models are named **singular** and tables are created in **plural**
-- Using debug bar
-- - `composer require barryvdh/laravel-debugbar --dev`
-- - In `config/app.php`, add :
-- - - `Barryvdh\Debugbar\ServiceProvider::class,` in `providers`
-- - - `'Debugbar' => Barryvdh\Debugbar\Facade::class,` in `aliases`
-- - Then run `php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"` - create `debugbar.php` in `config` repo
-- Helpers
-- In repo : `Utils/helper.php`
-- Added in `composer.json` - `autoload` section, then `composer dump-autoload`
-- Used in `resources/views/admin/posts.blade.php`
+- Helpers :
+- - In repo : `Utils/helper.php`
+- - Added in `composer.json` - `autoload` section, then `composer dump-autoload`
+- - Used in `resources/views/admin/posts.blade.php`
 - Routes admin - `adminPostEdit` updated for multiple parameter
 - ` php artisan route:list` - Routes list
 
@@ -102,3 +96,18 @@ Schema::create('cars', function (Blueprint $table) {
 - use `@csrf`
 - use `@method('delete')` - for delete
 - use `@method('PUT')` - for update
+
+## Profiler for debugging - Telescope
+
+- https://laravel.com/docs/8.x/telescope (Docs for setup)
+- Install `composer require laravel/telescope --dev`
+- Then run `php artisan telescope:install` - publish its assets
+- Then run `php artisan migrate` -  create the tables needed to store Telescope's data
+- Finally goto `<app_url>/telescope` to view dashboard
+- Having a debug bar : 
+- - Install `composer require barryvdh/laravel-debugbar --dev`
+- - In `config/app.php`, add :
+- - - `Barryvdh\Debugbar\ServiceProvider::class,` in `providers`
+- - - `'Debugbar' => Barryvdh\Debugbar\Facade::class,` in `aliases`
+- - Then run `php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"` - create `debugbar.php` in `config` repo
+- Activate / Deactivate it in `.env`
