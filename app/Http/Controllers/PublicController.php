@@ -10,8 +10,8 @@ class PublicController extends Controller
 {
     public function index()
     {
-        $data['posts'] = Post::all();
-        return view('home', $data);
+        $post = Post::all();
+        return view('home')->with('posts', $post);
     }
 
     public function singlePost($id)
@@ -32,6 +32,11 @@ class PublicController extends Controller
 
     public function contactUsPost()
     {
+    }
+
+    public function postManipulation($id)
+    {
+        # dump(Post::find($id)->delete());
     }
 
     # Query Builder & Eloquent

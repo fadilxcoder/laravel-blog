@@ -19,6 +19,18 @@ class Car extends Model
         'year'
     ];
 
+    # Fields allowed to display in blade
+    protected $visible = [
+        'model_name',
+        'information',
+        'year'
+    ];
+
+    # Fields prevent to display in blade
+    protected $hidden = [
+//        'id'
+    ];
+
     # Prevent table from having created_at & updated_at
     public $timestamps = false;
 }

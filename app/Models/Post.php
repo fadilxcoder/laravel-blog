@@ -12,14 +12,14 @@ class Post extends Model
 
     public function user()
     {
-        //1 post belong to 1 user
-        return $this->belongsTo('App\Models\User');
+        # 1 post belong to 1 user
+        return $this->belongsTo(User::class);
     }
 
     public function comments()
     {
-        //1 post has many comments
-        return $this->hasMany('App\Models\Comment');
+        # 1 post has many comments
+        return $this->hasMany(Comment::class);
     }
 
     public function readableDate($date)

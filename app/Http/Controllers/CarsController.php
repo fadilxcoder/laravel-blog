@@ -26,6 +26,12 @@ class CarsController extends Controller
             dump('clear');
         });
         */
+
+        # Eloquent serialization
+        /*
+        dump(Car::all()->toArray());
+        dump(Car::all()->toJson());
+        */
     }
 
     /**
